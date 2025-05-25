@@ -1,0 +1,12 @@
+import pytest
+from selenium import webdriver
+from data import TestData
+
+
+@pytest.fixture()
+def driver():
+    driver = webdriver.Firefox()
+    driver.maximize_window()
+    driver.get(TestData.website_address)
+    yield driver
+    driver.quit()
